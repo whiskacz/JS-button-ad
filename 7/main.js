@@ -13,14 +13,11 @@ button.addEventListener("click", createLiElements);
 
 const createLiElements = () => {
  for(i = 0; i < 10; i++){
-    let li = document.createElement("li")
+    const li = document.createElement("li")
     let list = document.querySelector("ul")
-    
-    list.style.fontSize = size + "px"
-    li.textContent = "Element nr" + orderElement;
+    li.textContent = `Element nr  ${orderElement++}`;
+    li.style.fontSize = `${size++}px`
     list.appendChild(li)
-    size++;
-    orderElement++;
     
  }
 
