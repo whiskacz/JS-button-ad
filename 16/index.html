@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div, span {
+            display: inline;
+        }
+        span{
+            opacity: 0;
+        }
+        .active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div></div><span>|</span>
+    <script>
+        const div = document.querySelector("div");
+        const text = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus voluptatem voluptate, eius laboriosam eveniet doloremque qui iste possimus aspernatur fugit vitae aliquam saepe id labore veritatis optio culpa officia perferendis?'
+        const krycha = document.querySelector("span")
+        let indexText = 0;
+        const liczydlo = () => {
+            div.textContent += text[indexText]
+            indexText++;
+            if (indexText === text.length) clearInterval(IndexTyping)
+            console.log(indexText)
+        }
+        const kreska = () => {
+            krycha.classList.toggle("active")
+            console.log("dzialam")
+
+        }
+
+        const IndexTyping = setInterval(liczydlo, 50)
+        setInterval(kreska, 100)
+
+
+    </script>
+</body>
+</html>
