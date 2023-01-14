@@ -48,16 +48,18 @@ const slideList =[
     }]
 
     let active = 0;
-    const time = 10000;
+    const time = 1000;
 
     const image = document.querySelector("img.slider")
     const text = document.querySelector("h1.slider")
     const dots = [...document.querySelectorAll(".dots span")]
+    
 
     const zmianaDotow = () =>{
     const activeDot = dots.findIndex(dot => dot.classList.contains("active"));
     dots[activeDot].classList.remove('active')
-    dots[active].classList.add("active")    
+    dots[active].classList.add("active") 
+    
     }
 
     const zmiana = () => {
@@ -65,8 +67,16 @@ const slideList =[
         if( active === slideList.length) active = 0;
         image.src = slideList[active].img;
         text.textContent = slideList[active].text;
+        console.log(active)
         zmianaDotow()
     }
-
+    const arrow = (e) =>{
+        if(e.keyCode == 37 || e.keyCode == 39){
+        e.keyCode == 37? active-- : active++;    
+        }
+        console.log(e.keyCode)
+        
+    }  
+    window.addEventListener("keydown", arrow)
     setInterval(zmiana, time)
 
