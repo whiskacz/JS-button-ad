@@ -48,16 +48,24 @@ const slideList =[
     }]
 
     let active = 0;
-    const time = 1000;
+    const time = 10000;
 
     const image = document.querySelector("img.slider")
     const text = document.querySelector("h1.slider")
+    const dots = [...document.querySelectorAll(".dots span")]
+
+    const zmianaDotow = () =>{
+    const activeDot = dots.findIndex(dot => dot.classList.contains("active"));
+    dots[activeDot].classList.remove('active')
+    dots[active].classList.add("active")    
+    }
 
     const zmiana = () => {
         active++;
         if( active === slideList.length) active = 0;
         image.src = slideList[active].img;
         text.textContent = slideList[active].text;
+        zmianaDotow()
     }
 
     setInterval(zmiana, time)
